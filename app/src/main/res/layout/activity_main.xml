@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.yammobots.mm_healthcare.activities.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/ll_tab"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:padding="20dp"
+            android:src="@drawable/user" />
+
+        <TextView
+            android:id="@+id/tvTabFeature"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:gravity="center"
+            android:text="Featured"
+            android:textColor="@color/colorWhiteSelected"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvTabForum"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:gravity="center"
+            android:text="Forum"
+            android:textColor="@color/colorWhiteUnSelected" />
+
+        <TextView
+            android:id="@+id/tvTabFeedback"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:gravity="center"
+            android:text="Feedback"
+            android:textColor="@color/colorWhiteUnSelected" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:padding="20dp"
+            android:src="@drawable/ic_search" />
+    </LinearLayout>
+
+    <com.yammobots.mm_healthcare.components.CustomNestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:windowSoftInputMode="stateHidden|adjustResize">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="@drawable/edt_shape_border">
+
+                <EditText
+                    android:id="@+id/edtMainSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/searchIcon"
+                    android:background="@android:color/transparent"
+                    android:hint="Search for Mi UI Updates, Reviews, Apps"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textSize="12sp" />
+
+                <!-- ICON -->
+                <ImageView
+                    android:id="@+id/searchIcon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:padding="12dp"
+                    android:src="@drawable/ic_search"
+                    android:tint="@color/colorSearchIconTint" />
+
+            </RelativeLayout>
+
+
+            <include layout="@layout/layout_item_pager" />
+
+            <include layout="@layout/layout_item_category" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_marginTop="24dp"
+                android:background="@color/colorSeparator" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.yammobots.mm_healthcare.components.SmartRecyclerView
+                    android:id="@+id/rvHCInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/margin_medium"
+                    tools:listitem="@layout/item_hc_info_view" />
+
+                <include
+                    android:id="@+id/vpEmptyNews"
+                    layout="@layout/empty_view_pod"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true" />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </com.yammobots.mm_healthcare.components.CustomNestedScrollView>
+</LinearLayout>
